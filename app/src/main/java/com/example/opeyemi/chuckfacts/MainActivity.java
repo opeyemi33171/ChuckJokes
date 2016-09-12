@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -32,16 +33,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         joke = (TextView)findViewById(R.id.joke);
-        Button refresh = (Button)findViewById(R.id.refresh);
-
-        refresh.setOnClickListener(new View.OnClickListener() {
+        FrameLayout jokeBackGround = (FrameLayout)findViewById(R.id.jokeBackground);
+        jokeBackGround.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Thread requestThread = new Thread(){
                     @Override
                     public void run() {
@@ -63,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 requestThread.start();
             }
         });
+      
 
 
 
@@ -99,11 +97,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    private String getJoke(){
+    private String getJoke() {
 
         String text = "";
         try {
-            String json =  run("https://api.chucknorris.io/jokes/random");
+            String json = run("https://api.chucknorris.io/jokes/random");
             JSONObject jsonObj = new JSONObject(json);
 
             text = jsonObj.getString("value");

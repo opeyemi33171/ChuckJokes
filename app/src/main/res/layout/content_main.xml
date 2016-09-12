@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,34 +7,51 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.opeyemi.chuckfacts.MainActivity"
     tools:showIn="@layout/activity_main"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/jokeBackground"
+    android:background="#eaa932"
+    >
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Did you know?."
-        android:textSize="16sp"
-        android:layout_marginLeft="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:textColor="#fff"
+
         />
+
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
+         android:layout_gravity="center_vertical"
         android:textSize="20sp"
-        android:text="Bruce lee is the greatest fighter inthe world!."
-        android:layout_marginTop="50dp"
-        android:id="@+id/joke"/>
+        android:id="@+id/joke"
+        android:textAlignment="center"
+       android:textColor="#fff"/>
     
-    
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="SHOW ANOTHER CHUCK JOKE"
+        android:layout_height="match_parent"
         android:layout_gravity="bottom"
-        android:id="@+id/refresh"/>
+        android:layout_marginBottom="10dp">
 
-</LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:text="TAP ANYWHERE"
+            android:layout_gravity="bottom|center_vertical"
+            android:id="@+id/refresh"
+            android:textColor="#fff"
+            android:textAlignment="center"/>
+
+    </LinearLayout>
+
+
+</FrameLayout>
